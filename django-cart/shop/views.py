@@ -10,7 +10,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django import template
 from models import Cart
 
-# Google Merchant Account for Dharmaseed.org
+# Google Merchant Account for zzz
+
 # Production
 # GoogleMerchantKey='xxx'
 # GoogleMerchantID='yyy'
@@ -70,7 +71,7 @@ def doGoogleCheckout(cart):
 def doPaypalCheckout(cart):
     fields = '''<input type="hidden" name="cmd" value="_cart">
                 <input type="hidden" name="upload" value="1">
-                <input type="hidden" name="business" value="dharma@crocker.com">
+                <input type="hidden" name="business" value="email@business.com">
                 <input type="hidden" name="amount" value="%s">
                 <input type="hidden" name="item_name" value="Dharma Talks">
                 <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif"
