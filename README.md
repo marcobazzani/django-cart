@@ -11,38 +11,38 @@ views.py
 from cart import Cart
 from myproducts.models import Product
 
-def add_to_cart(request, product_id, quantity):
-    product = Product.objects.get(id=product_id)
-    cart = Cart(request)
-    cart.add(product, product.unit_price, quantity)
-
-def remove_from_cart(request, product_id):
-    product = Product.objects.get(id=product_id)
-    cart = Cart(request)
-    cart.remove(product)
-
-def get_cart(request):
-    return render_to_response('cart.html', dict(cart=Cart(request)))
-
+	def add_to_cart(request, product_id, quantity):
+	    product = Product.objects.get(id=product_id)
+	    cart = Cart(request)
+	    cart.add(product, product.unit_price, quantity)
+	
+	def remove_from_cart(request, product_id):
+	    product = Product.objects.get(id=product_id)
+	    cart = Cart(request)
+	    cart.remove(product)
+	
+	def get_cart(request):
+	    return render_to_response('cart.html', dict(cart=Cart(request)))
+	
 templates/cart.html
 
-{% extends 'base.html' %}
-
-{% block body %}
-    <table>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-        </tr>
-        {% for item in cart %}
-        <tr>
-            <td>{{ item.product.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.total_price }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{% endblock %}
-
+	{% extends 'base.html' %}
+	
+	{% block body %}
+	    <table>
+	        <tr>
+	            <th>Product</th>
+	            <th>Quantity</th>
+	            <th>Total Price</th>
+	        </tr>
+	        {% for item in cart %}
+	        <tr>
+	            <td>{{ item.product.name }}</td>
+	            <td>{{ item.quantity }}</td>
+	            <td>{{ item.total_price }}</td>
+	        </tr>
+	        {% endfor %}
+	    </table>
+	{% endblock %}
+	
 
